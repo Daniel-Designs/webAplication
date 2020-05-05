@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>{{ topic.name }} - New thread</title>
+{% endblock %}
+
+{% block body %}
+  <div class="container thread">
+        <ol class="breadcrumb my-4">
+            <li class="breadcrumb-item"><a href="{% url 'foro' %}">Topics</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'topic_threads' topic.name %}">{{ topic.name }}</a></li>
+            <li class="breadcrumb-item active">New thread</li>
+        </ol>
+        <form method="post" novalidate>
+            {% csrf_token %}
+            {% include 'includes/form.html' %}
+            <button type="submit" class="btn btn-success">Post</button>
+            <a class="btn btn-danger" href="{% url 'topic_threads' topic.name %}">Cancel</a>
+        </form>
+    </div>
+{% endblock body %}

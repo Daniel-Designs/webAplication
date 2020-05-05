@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>{{ topic.name }} - Threads</title>
+{% endblock %}
+
+{% block body %}
+  <div class="container thread">
+      <ol class="breadcrumb my-4">
+        <li class="breadcrumb-item"><a href="{% url 'foro' %}">Topics</a></li>
+        <li class="breadcrumb-item active">{{ topic.name }}</li>
+      </ol>
+      <a href="{% url 'new_thread' topic.name %}" class="btn btn-primary btn-newThread">Create a thread</a>
+  </div>
+
+   <form method="GET">
+    <div class="container input-group mb-3" id="busqueda">
+        <input type="text" class="form-control" placeholder="Search topic" name="buscar">
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-success"> Search </button>
+        </div>
+      </div>
+  </form>
+
+  <div class='container'>
+  <table class="table container table-bordered table-hover">
+    <thead class="thead-inverse thead-dark">
+      <tr>
+        <th th scope="col" width="40%">Topic</th>
+        <th scope="col" width="15%">Starter</th>
+        <th scope="col" width="10%">Replies</th>
+        <th scope="col" width="10%">Views</th>
+        <th scope="col" width="25%">Last Update</th>
+      </tr>
+    </thead>
+    <tbody>
+  
+      {% for thread in threads %}
+        <tr>
+          <td>
+            <a href="{% url 'thread_posts' topic.name thread.name %}">{{ thread.name }}</a>
+            <small class="text-muted d-block">{{ thread.body }}</small>
+          </td>
+          <td>{{ thread.user }}</td>
+          <td>
+            {{ thread.get_posts_count }}
+          </td>
+          <td>{{ thread.no_views }}</td>
+          <td>{{ thread.updated }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+{% endblock %}

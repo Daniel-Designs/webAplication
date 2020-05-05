@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+{% block body %}
+<section>
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for non_field_error in form.non_field_errors %}
+    <p class="help is-danger">{{ non_field_error }}</p>
+    {% endfor %}
+    <div class="row">
+        <div class="col-md-auto"> 
+            {% if user.profile.profile_pic %}
+            <img class="profileImage" src="{{ user.profile.profile_pic.url }}" width="160px">
+            {% else %}
+            <img src="/Proyecto4patas1/media/profile_image/default_profileImage.jpg" width="170px">
+            {% endif %}
+            <br>
+            <br><label for="id_profile_pic" >Change profile picture</label>
+            <form class="md-form">
+                <div class="file-field">
+                  <div class="btn btn-sm float-left">
+                    <input type="file" name="profile_pic" accept="image/*" id="id_profile_pic">
+                  </div>
+                </div>
+            </form><br>
+            <button type="button" class="btn btn-info btn-profile" id="btn-editProfile" onclick="window.location.href = '/profile/changePassword';">Change password</button>
+        </div>
+        <div class="col">
+            <p><label for="id_bio">About me</label><br> 
+                <textarea name="bio" class="form-control" value="{{ user.profile.bio }}" cols="50" rows="3" maxlength="2500" id="id_bio" placeholder="Describe yourself"></textarea></p>
+            <p><label for="id_email">Email address</label><br> 
+            <input type="email" class="form-control" name="email" value="{{ user.email }}" maxlength="254" id="id_email"></p>
+            <p><label for="id_first_name">First name</label><br> 
+            <input type="text" class="form-control" name="first_name" value="{{ user.first_name }}" maxlength="30" id="id_first_name"></p>
+            <p><label for="id_last_name">Last name</label><br>
+            <input type="text" class="form-control" name="last_name" value="{{ user.last_name }}" maxlength="150" id="id_last_name"></p>
+            <button type="submit" class="btn btn-danger btn-lg">Submit</button>
+        </div>
+    </div>
+    {% for error in field.errors %}
+    <p class="help is-danger">{{ error }}</p>
+    {% endfor %}
+    
+    </form>
+</div>
+</section>
+{% endblock %}
+
+<!--<label for="profile_pic-clear_id">Clear</label><input type="checkbox" name="profile_pic-clear" id="profile_pic-clear_id"><br>-->
+<!--<input type="file" name="profile_pic" accept="image/*" id="id_profile_pic">-->

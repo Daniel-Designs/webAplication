@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Foro</title>
+{% endblock %}
+
+{% block body %}
+  <header class="bg-primary text-white headerForo">
+    <div class="container d-flex justify-content-center">
+        <div class="row">
+            <div class="col-md-auto">
+              <img src="{% static 'img/logos5.png' %}" id="logoForo"/>
+            </div>
+            <div class="col-md-auto text-center">
+              <h3>Adoption saves lifes</h3> 
+              <h4>FORUM</h4> 
+            </div>
+    </div>
+  </header>
+
+  <section id="temas">
+  <form method="GET">
+    <div class="container input-group mb-3" id="busqueda">
+      <input type="text" class="form-control" placeholder="Search topic" name="buscar">
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-success"> Search </button>
+      </div>
+    </div>
+  </form>
+
+
+    <div class="container">
+      <table class="table table-bordered table-hover table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" width="50%">Name</th>
+            <th scope="col" width="15%">Stats</th>
+            <th scope="col" width="35%">Last update</th>
+         </tr>
+        </thead>
+        <tbody>
+            {% for topic in topics %}
+          <tr>
+            <td>
+              <a href="{% url 'topic_threads' topic.name %}">{{ topic.name }}</a>
+              <small class="text-muted d-block">{{ topic.description }}</small>
+            </td>
+            <td class="align-middle">
+              Threads: {{ topic.threads.count }}<br>
+              Posts: {{ topic.get_posts_count }}
+            </td>
+            <td class="align-middle">
+              {% with post=topic.get_last_post %}
+                {% if post %}
+                  <small>
+                      <a href="{% url 'thread_posts' topic.name post.thread.name %}">
+                        <b>{{ post.thread.name }}</b>
+                        <br>  
+                        {{ post.user }} - {{ post.created }}
+                        </a>
+                  </small>
+                {% else %}
+                  <small class="text-muted">
+                    <em>There's no posts yet...</em>
+                  </small>
+                {% endif %}
+              {% endwith %}
+            </td>
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>    
+    </div>
+  </section>
+{% endblock %}  

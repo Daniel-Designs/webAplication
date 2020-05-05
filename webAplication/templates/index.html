@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Proyecto 4 patas</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link rel="shortcut icon" href="{% static 'img/logos5.png' %}">
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="{% static 'css/scrolling-nav.css' %}">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Proyecto4patas</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#faq">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/foro">Foro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white">
+    <div class="container text-center">
+        <img src="{% static 'img/logos5.png' %}" id="logo"/>
+      <h1>Adoptar es salvar</h1>
+      <p class="lead">El sitio de adopción de perros más grande de México</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Quienes somos</h2>
+          <p class="lead">Proyecto4patas es un grupo de personas dedicado al rescate de animales en situación de calle, así como a la concientización acerca de la adopción y cuidados.</p>
+          <ul>
+            <li>Somos el proyecto numero uno dentro del ramo</li>
+            <li>Tenemos información y tips sobre cuidado de nuestros expertos</li>
+            <li>Red de casas de adopción y rescate más grande de latinoamérica</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Preguntas Frecuentes</h2>
+          <p class="lead">¿Por qué adoptar?</p>
+          <ul>
+            <li>Es un acto de gran humanidad</li>
+            <li>Al rescatar un animal de la calle, obtienes un amigo que te lo agradecerá toda su vida.</li>
+            <li>Disminuyes el número de sacrificios innecesarios realizados para controlar las poblaciones felina y canina</li>
+          </ul>
+          <p class="lead">¿Puedo anunciar mi refugio de perros?</p>
+          <ul>
+            <li>Claro! ponte en contacto con nosotros.</li>
+          </ul>
+          <p class="lead"¿>¿Dónde adoptar?</p>
+          <ul>
+            <li>Tenemos la red más grande de casas de adopción y refugios. Pasa por nuestro foro donde podrás ver anuncios de organizaciones y particulares</li>
+          </ul>
+          <p class="lead"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2>Contactanos</h2><br><br>
+          <a href="https://wwww.facebook.com"><img src="{% static 'img/icons/facebook-icon.png' %}" class="logoContacto"></a>  
+          <a href="https://www.instagram.com"><img src="{% static 'img/icons/Instagram_icon.png' %}" class="logoContacto"></a>
+          <a href="https://www.twitter.com"><img src="{% static 'img/icons/Twitter_Logo_WhiteOnBlue.png' %}" class="logoContacto"></a>
+          <a href="https://www.google.com"><img src="{% static 'img/icons/Google-plus-circle-icon-png.png' %}" class="logoContacto"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Proyecto4patas 2019</p>
+      <p class="m-3 text-center text-white"> David Cárdenas, Lisset Cuevas y Daniel Morales</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="{% static 'js/scrolling-nav.js' %}"></script>
+
+</body>
+
+</html>

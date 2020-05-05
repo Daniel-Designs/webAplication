@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Singup</title>
+{% endblock %}
+
+{% block body %}
+<section>
+  <div class="container">
+    <form method="POST">
+      {% csrf_token %}
+      {% include 'includes/form.html' %}
+      <button type="submit" class="btn btn-primary">Singup</button>
+    </form>
+  </div>
+</section>
+{% endblock %}
